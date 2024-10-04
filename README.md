@@ -25,14 +25,14 @@ Controle de gerenciamento/venda de veículos
 
 ## Sudbominio Principal
 - Venda de veículos
+- Gerenciamento dos veiculos
 
 ## Subdominio Genérico
-- Gerenciamento dos veiculos
 - Listagem de veiculos a venda
 - Listagem de veiculos vendidos
 
 ## Subdominio Suporte
-- L 
+
 
 ## Linguagem ubíqua
 
@@ -202,4 +202,30 @@ docker compose up
 ]
 ```
 
-
+### Venda
+- Path `/venda`
+    - **POST**: Cria uma nova venda
+      - **HTTP Code**:
+        - 200 - cadastrado corretamente
+        - 403 - payload com dados invalidos
+  - **Payload**
+```json
+{
+"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
+"data_compra": "2024-01-01 00:00:00",
+"cpf": "185.612.250-68",
+"valor": 124000.00,
+}
+```
+- **Resposta**
+```json
+{
+"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
+"marca": "GM",
+"modelo": "S10",
+"ano": "2024",
+"cor": "Cinza",
+"valor": 124000.99,
+"status": "V",
+}
+```
