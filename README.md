@@ -81,7 +81,7 @@ docker compose up
 "ano": "2024",
 "cor": "Cinza",
 "valor": 124000.99,
-"status": "V",
+"status": "V"
 }
 ```
 - **Resposta**
@@ -110,7 +110,7 @@ docker compose up
 "ano": "2024",
 "cor": "Prata",
 "valor": 124000.99,
-"status": "V",
+"status": "V"
 }
 ```
 - **Resposta**
@@ -122,7 +122,7 @@ docker compose up
 "ano": "2024",
 "cor": "Prata",
 "valor": 124000.99,
-"status": "V",
+"status": "V"
 }
 ```
 - Path `/veiculo/{{id}}`
@@ -161,7 +161,7 @@ docker compose up
   "ano": "2024",
   "cor": "Prata",
   "valor": 124000.99,
-  "status": "D",
+  "status": "D"
 },
  {
   "id": "5a68ef06-1b8c-11ee-8fe5-023afac12b32",
@@ -170,7 +170,7 @@ docker compose up
   "ano": "2022",
   "cor": "Preto",
   "valor": 114000.99,
-  "status": "D",
+  "status": "D"
 },
 ]
 ```
@@ -188,7 +188,7 @@ docker compose up
   "ano": "2024",
   "cor": "Prata",
   "valor": 124000.99,
-  "status": "V",
+  "status": "V"
 },
  {
   "id": "5a68ef06-1b8c-11ee-8fe5-023afac12b32",
@@ -197,7 +197,7 @@ docker compose up
   "ano": "2022",
   "cor": "Preto",
   "valor": 114000.99,
-  "status": "V",
+  "status": "V"
 },
 ]
 ```
@@ -214,18 +214,40 @@ docker compose up
 "idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
 "data_compra": "2024-01-01 00:00:00",
 "cpf": "185.612.250-68",
-"valor": 124000.00,
+"valor": 124000.00
 }
 ```
 - **Resposta**
 ```json
 {
 "id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
-"marca": "GM",
-"modelo": "S10",
-"ano": "2024",
-"cor": "Cinza",
-"valor": 124000.99,
-"status": "V",
+"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
+"data_compra": "2024-01-01 00:00:00",
+"cpf": "185.612.250-68",
+"valor": 124000.00
 }
 ```
+- Path `/venda`
+    - **GET**: Lista todas as vendas
+      - **HTTP Code**:
+        - 200
+- **Resposta**
+```json
+[
+{
+"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
+"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
+"data_compra": "2024-01-01 00:00:00",
+"cpf": "185.612.250-68",
+"valor": 124000.00
+},
+{
+"id": "8j68ef06-1b8c-11ee-8fe5-023afac12b8432",
+"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-8j68ef06",
+"data_compra": "2024-01-01 00:00:00",
+"cpf": "000.000.00-00",
+"valor": 124000.00
+}
+]
+```
+
