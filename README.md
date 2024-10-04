@@ -40,6 +40,7 @@ Controle de gerenciamento/venda de veículos
 - Cliente: Toda pessoa que inicia o processo de compra de um veiculo.
 - Veiculo: Todo o veiculo comercializado pela empresa
 - Venda: Processo de venda de um veiculo para um cliente;
+- Vendedor: Todo funcionário da empresa responsável por gerenciar os veiculos.
 
 ## Event Storming
 
