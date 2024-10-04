@@ -44,6 +44,7 @@ Controle de gerenciamento/venda de veículos
 - Vendedor: Todo funcionário da empresa responsável por gerenciar os veiculos.
 
 ## Event Storming
+> Acesse https://miro.com/app/board/uXjVLWyqN2E=/?share_link_id=69846078093
 
 ## Domain Storytelling
 
