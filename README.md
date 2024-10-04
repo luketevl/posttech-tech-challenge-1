@@ -46,6 +46,12 @@ Controle de gerenciamento/venda de veículos
 
 ## Domain Storytelling
 
+### Dominio Puro
+![Dominio puro](./resources/dominio_puro.png)
+
+### Dominio Digitalizado
+![Dominio digitalizado](./resources/dominio_digitalizado.png)
+
 ----
 
 # Executando o projeto
