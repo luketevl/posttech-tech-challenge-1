@@ -1,9 +1,10 @@
 import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import HttpServer from './HttpServer.ts';
+import type HttpServer from './HttpServer.ts';
 
-export class ExpressAdapter implements HttpServer {
+export default class ExpressAdapter implements HttpServer {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   app: any;
 
   constructor() {
@@ -14,11 +15,14 @@ export class ExpressAdapter implements HttpServer {
     this.app.use(express.json());
   }
 
+  // biome-ignore lint/complexity/noBannedTypes: <explanation>
   register(method: string, url: string, callback: Function): void {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     this.app[method](url.replace(/\{|\}/g, ''), async (req: any, res: any) => {
       try {
         const output = await callback(req.params, req.body);
         res.json(output);
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       } catch (e: any) {
         res.status(422).json({
           message: e.message,
@@ -27,7 +31,7 @@ export class ExpressAdapter implements HttpServer {
     });
   }
 
-  listen(port: number): void {
+  listen(port: number | string): void {
     this.app.listen(port);
   }
 }

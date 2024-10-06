@@ -1,22 +1,22 @@
 import type CarRepository from 'src/application/repository/CarRepository.ts';
 import type { CAR_STATUS } from 'src/config/Status.ts';
 import type Car from 'src/domain/entity/Car.ts';
-import type DatabaseConnection from '../database/DatabaseConnection.ts';
+import type ORM from '../orm/ORM.ts';
 export default class CarRepositoryOrm implements CarRepository {
-  constructor(private readonly client: DatabaseConnection) {}
-  get(id: string): Car {
+  constructor(private readonly orm: ORM) {}
+  async get(id: string): Promise< Car> {
     throw new Error('Method not implemented.');
   }
-  save(car: Car): Car {
+  async save(car: Car): Promise<void> {
     throw new Error('Method not implemented.');
   }
-  update(id: string, car: Car): Car {
+  async update(id: string, car: Car): Promise<Car> {
     throw new Error('Method not implemented.');
   }
-  delete(id: string): boolean {
+  async delete(id: string): Promise<boolean> {
     throw new Error('Method not implemented.');
   }
-  list(status: keyof typeof CAR_STATUS): Array<Car> {
+  async list(status: keyof typeof CAR_STATUS): Promise<Array<Car>> {
     throw new Error('Method not implemented.');
   }
 }

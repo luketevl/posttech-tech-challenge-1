@@ -28,7 +28,7 @@ export default class Car {
     return new Car(carId, price, status, brand, model, color, year);
   }
 
-  sale() {
+  sell(){
     if (this.status === CAR_STATUS.SOLD) {
       throw new Error('Car already sold');
     }
