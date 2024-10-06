@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: .
+      target: development
+    command: npm run dev
+    env_file:
+      - .env
+    ports:
+      - 3004:3004
+    volumes:
+      - .:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
+  postgres_query:
+    image: postgres:14.3-alpine
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: app
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./query/create.sql:/docker-entrypoint-initdb.d/init.sql
