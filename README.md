@@ -37,10 +37,10 @@ Controle de gerenciamento/venda de veículos
 ## Linguagem ubíqua
 
 ### Dicionario
-- Cliente: Toda pessoa que inicia o processo de compra de um veiculo.
-- Veiculo: Todo o veiculo comercializado pela empresa
+- Cliente/Client: Toda pessoa que inicia o processo de compra de um veiculo.
+- Veiculo/Car: Todo o veiculo comercializado pela empresa
 - Venda: Processo de venda de um veiculo para um cliente;
-- Compra: Processo de compra de um veiculo por um cliente;
+- Compra/Order: Processo de compra de um veiculo por um cliente;
 - Vendedor: Todo funcionário da empresa responsável por gerenciar os veiculos.
 
 ## Event Storming
