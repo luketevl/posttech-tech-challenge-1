@@ -63,10 +63,7 @@ npm i
 docker compose up
 ```
 ## Como rodar locamente
-- Para rodar o projeto basta executar o comando abaixo.
-```shelll
-docker compose up
-```
+- Acesse a pasta backend no README tem as instruções.
 
 ## Como testar
 - Segue abaixo collection com todos os endpoints disponíveis para teste.

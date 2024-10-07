@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "59dc9f82-b2b4-4362-9278-3efe914238fe",
+		"name": "Tech Challenge fase 1 Veiculos",
+		"description": "Management and sell cars.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "483864"
+	},
+	"item": [
+		{
+			"name": "car",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('should return valid status', () => {\r",
+									"    const data = pm.response.json();\r",
+									"    if(data.carId) pm.environment.set('carId', data.carId)\r",
+									"    pm.expect(data.id).to.be.not.empty()\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"AVAILABLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{car}}",
+							"host": [
+								"{{host}}{{car}}"
+							]
+						},
+						"description": "Create a new car"
+					},
+					"response": [
+						{
+							"name": "AVAILABLE",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 2.99,\r\n\"status\": \"AVAILABLE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3334/car",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3334",
+									"path": [
+										"car"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "SOLD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"AVAILABLE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{car}}",
+									"host": [
+										"{{host}}{{car}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "INVALID",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"INVALID STATUS\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{car}}",
+									"host": [
+										"{{host}}{{car}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"AVAILABLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{car}}/{{carId}}",
+							"host": [
+								"{{host}}{{car}}"
+							],
+							"path": [
+								"{{carId}}"
+							]
+						},
+						"description": "Edit a car"
+					},
+					"response": [
+						{
+							"name": "INVALID STATUS",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"INVALID\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3334/car/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3334",
+									"path": [
+										"car",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "SUCCESS",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"SOLD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{car}}/{{carId}}",
+									"host": [
+										"{{host}}{{car}}"
+									],
+									"path": [
+										"{{carId}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{car}}/{{carId}}",
+							"host": [
+								"{{host}}{{car}}"
+							],
+							"path": [
+								"{{carId}}"
+							]
+						},
+						"description": "Get the unique car"
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{car}}/status/{{status}}",
+							"host": [
+								"{{host}}{{car}}"
+							],
+							"path": [
+								"status",
+								"{{status}}"
+							]
+						},
+						"description": "List all cars available with lower price"
+					},
+					"response": [
+						{
+							"name": "AVAILABLE",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3334/car/status/AVAILABLE",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3334",
+									"path": [
+										"car",
+										"status",
+										"AVAILABLE"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "SOLD",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3334/car/status/SOLD",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3334",
+									"path": [
+										"car",
+										"status",
+										"SOLD"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{car}}/{{carId}}",
+							"host": [
+								"{{host}}{{car}}"
+							],
+							"path": [
+								"{{carId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Management the cars"
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carId\": \"{{carId}}\",\r\n    \"cpf\": \"185.612.250-68\",\r\n    \"total\": 124000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}{{order}}",
+							"host": [
+								"{{host}}{{order}}"
+							]
+						},
+						"description": "Create a new order"
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}{{order}}",
+							"host": [
+								"{{host}}{{order}}"
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				}
+			],
+			"description": "Sell the car."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "idVeiculo",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

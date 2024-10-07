@@ -1,0 +1,39 @@
+{
+	"id": "bf76d992-3432-4cd7-a494-0267bc05e683",
+	"name": "tech challenge veiculos",
+	"values": [
+		{
+			"key": "host",
+			"value": "http://localhost:3334/",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "car",
+			"value": "car",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "order",
+			"value": "order",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "carId",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "status",
+			"value": "SOLD",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-10-07T15:34:37.420Z",
+	"_postman_exported_using": "Postman/11.15.0"
+}
