@@ -87,10 +87,11 @@
 									]
 								}
 							},
+							"code": 200,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "{\r\n    \"carId\": \"1261f7d2-847f-49bb-9663-9acba2f4db38\",\r\n    \"brand\": \"GM\",\r\n    \"model\": \"S10\",\r\n    \"year\": \"2024\",\r\n    \"color\": \"Cinza\",\r\n    \"price\": 124000.99,\r\n    \"status\": \"AVAILABLE\"\r\n}"
 						},
 						{
 							"name": "SOLD",
@@ -119,10 +120,12 @@
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "{\r\n    \"carId\": \"1261f7d2-847f-49bb-9663-9acba2f4db38\",\r\n    \"brand\": \"GM\",\r\n    \"model\": \"S10\",\r\n    \"year\": \"2024\",\r\n    \"color\": \"Cinza\",\r\n    \"price\": 124000.99,\r\n    \"status\": \"SOLD\"\r\n}"
 						},
 						{
 							"name": "INVALID",
@@ -151,10 +154,12 @@
 									]
 								}
 							},
+							"status": "Unprocessable Content",
+							"code": 422,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "{\r\n    \"message\": \"Invalid status\"\r\n}"
 						}
 					]
 				},
@@ -223,10 +228,49 @@
 									]
 								}
 							},
+							"status": "Unprocessable Content",
+							"code": 422,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "{\r\n    \"message\": \"Invalid status\"\r\n}"
+						},
+						{
+							"name": "CAR NOT BE SELL",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"brand\": \"GM\",\r\n\"model\": \"S10\",\r\n\"year\": \"2024\",\r\n\"color\": \"Cinza\",\r\n\"price\": 124000.99,\r\n\"status\": \"INVALID\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}{{car}}/{{carId}}",
+									"host": [
+										"{{host}}{{car}}"
+									],
+									"path": [
+										"{{carId}}"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"Sold car not be modified not available\"\r\n}"
 						},
 						{
 							"name": "SUCCESS",
@@ -258,10 +302,12 @@
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "{\r\n    \"carId\": \"f06a5a0d-c7f6-4d93-a93a-bd39b6a7b075\",\r\n    \"brand\": \"GM\",\r\n    \"model\": \"S10\",\r\n    \"year\": \"2024\",\r\n    \"color\": \"Cinza\",\r\n    \"price\": 124000.99,\r\n    \"status\": \"AVAILABLE\"\r\n}"
 						}
 					]
 				},
@@ -320,10 +366,12 @@
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "[\r\n    {\r\n        \"carId\": \"a9b6b8a0-0a4c-4010-8a2d-9769ef37dadb\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 1.99,\r\n        \"status\": \"AVAILABLE\"\r\n    },\r\n    {\r\n        \"carId\": \"a095e7ce-ea93-4faa-be3a-dcc095a5e4cb\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 2.99,\r\n        \"status\": \"AVAILABLE\"\r\n    },\r\n    {\r\n        \"carId\": \"aa6c8109-0613-4483-907c-a3cd5f1dc5f0\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"AVAILABLE\"\r\n    },\r\n    {\r\n        \"carId\": \"2a6c487e-cf69-40d6-8fc9-3ebace33f2b6\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"AVAILABLE\"\r\n    },\r\n    {\r\n        \"carId\": \"8e39a766-e6f8-4a78-a140-7c470028c43d\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"AVAILABLE\"\r\n    },\r\n    {\r\n        \"carId\": \"f06a5a0d-c7f6-4d93-a93a-bd39b6a7b075\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"AVAILABLE\"\r\n    }\r\n]"
 						},
 						{
 							"name": "SOLD",
@@ -331,23 +379,22 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3334/car/status/SOLD",
-									"protocol": "http",
+									"raw": "{{host}}{{car}}/status/SOLD",
 									"host": [
-										"localhost"
+										"{{host}}{{car}}"
 									],
-									"port": "3334",
 									"path": [
-										"car",
 										"status",
 										"SOLD"
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": null,
 							"header": null,
 							"cookie": [],
-							"body": null
+							"body": "[\r\n    {\r\n        \"carId\": \"88b653f1-8d96-4ddc-ba65-e718398ef9e4\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 2.99,\r\n        \"status\": \"SOLD\"\r\n    },\r\n    {\r\n        \"carId\": \"7464db76-6f55-4282-a66b-c4b75011bec3\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"SOLD\"\r\n    },\r\n    {\r\n        \"carId\": \"75a3f789-d49e-4431-9294-05cbf9d819d8\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"SOLD\"\r\n    },\r\n    {\r\n        \"carId\": \"d53fde7a-e8eb-4a10-9c9d-0378f03d2725\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"SOLD\"\r\n    },\r\n    {\r\n        \"carId\": \"c116a0c9-8a37-4970-99a6-6c59ffddd9dd\",\r\n        \"brand\": \"GM\",\r\n        \"model\": \"S10\",\r\n        \"year\": \"2024\",\r\n        \"color\": \"Cinza\",\r\n        \"price\": 124000.99,\r\n        \"status\": \"SOLD\"\r\n    }\r\n]"
 						}
 					]
 				},
