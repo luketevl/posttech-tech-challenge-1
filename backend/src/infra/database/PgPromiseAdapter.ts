@@ -1,9 +1,10 @@
 import pgp from 'pg-promise';
 
-import DatabaseConnection from './DatabaseConnection.ts';
 import { HOST, PASSWORD, PORT, USER } from 'src/config/Database.ts';
+import type DatabaseConnection from './DatabaseConnection.ts';
 
 export default class PgPromiseAdapter implements DatabaseConnection {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   connection: any;
 
   constructor() {
@@ -12,6 +13,7 @@ export default class PgPromiseAdapter implements DatabaseConnection {
     );
   }
 
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   query(statement: string, params: any) {
     return this.connection.query(statement, params);
   }

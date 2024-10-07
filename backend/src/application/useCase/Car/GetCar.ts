@@ -6,7 +6,7 @@ export default class GetCar implements UseCase {
     private readonly carRepository: CarRepository,
   ) {}
   async execute(input: Input): Promise<Output> {
-    const carExists = await this.carRepository.get(input.carId);
+    const carExists = await this.carRepository.get(input);
     if (!carExists) throw new Error('Car not found');
     return {
       carId: carExists.carId,
@@ -19,9 +19,7 @@ export default class GetCar implements UseCase {
     };
   }
 }
-type Input = {
-  carId: string;
-};
+type Input = string
 type Output = {
   carId: string;
   brand: string;

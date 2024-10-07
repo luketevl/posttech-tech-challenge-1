@@ -74,89 +74,94 @@ docker compose up
 
 # API
 ## Rotas
-> Documentacao das rotas disponiveis, elas podem ser acessadas tambem nessa collection (xxxxxxxxxxxxxxxxxxxxxxxx)
+> Documentacao das rotas disponiveis, elas podem ser acessadas tambem nessa collection (https://documenter.getpostman.com/view/483864/2sAXxP9CRu)
 > 
-### Veiculo
-- Path `/veiculo`
+### Veiculo / Car
+- Path `/car`
     - **POST**: Cria um novo veiculo
       - **HTTP Code**:
         - 200 - cadastrado corretamente
-        - 403 - payload com dados invalidos
+        - 422 - payload com dados invalidos
   - **Payload**
 ```json
 {
-"marca": "GM",
-"modelo": "S10",
-"ano": "2024",
-"cor": "Cinza",
-"valor": 124000.99,
-"status": "V"
+    "brand": "GM",
+    "model": "S10",
+    "year": "2024",
+    "color": "Cinza",
+    "price": 124000.99,
+    "status": "SOLD"
 }
 ```
 - **Resposta**
 ```json
 {
-"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
-"marca": "GM",
-"modelo": "S10",
-"ano": "2024",
-"cor": "Cinza",
-"valor": 124000.99,
-"status": "V",
+    "carId": "2a6c487e-cf69-40d6-8fc9-3ebace33f2b6",
+    "brand": "GM",
+    "model": "S10",
+    "year": "2024",
+    "color": "Cinza",
+    "price": 124000.99,
+    "status": "AVAILABLE"
 }
 ```
-- Path `/veiculo/{{id}}`
+- Path `/car/{{id}}`
     - **PATH**: Edita um veiculo
       - **HTTP Code**:
         - 200 - alterado corretamente
-        - 403 - payload com dados invalidos
+        - 422 - payload com dados invalidos
   - **Payload**
 ```json
 {
-"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
-"marca": "GM",
-"modelo": "S10",
-"ano": "2024",
-"cor": "Prata",
-"valor": 124000.99,
-"status": "V"
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.99,
+  "status": "SOLD"
 }
 ```
 - **Resposta**
 ```json
 {
-"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
-"marca": "GM",
-"modelo": "S10",
-"ano": "2024",
-"cor": "Prata",
-"valor": 124000.99,
-"status": "V"
+  "carId": "75a3f789-d49e-4431-9294-05cbf9d819d8",
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.99,
+  "status": "SOLD"
 }
 ```
-- Path `/veiculo/{{id}}`
+- Path `/car/{{id}}`
     - **DELETE**: Deleta um veiculo
       - **HTTP Code**:
         - 200 - deletou o veiculo com sucesso
-        - 403 - produto nao existe
+        - 422 - produto nao existe
 - **Resposta**
 ```json
 {
  "success": true
 }
 ```
-- Path `/veiculo/{{id}}`
+- Path `/car/{{id}}`
     - **GET**: Busca um veiculo
       - **HTTP Code**:
         - 200 - encontrou o veiculo com sucesso
-        - 404 - veiculo nao existe
+        - 422 - veiculo nao existe
 - **Resposta**
 ```json
 {
- "success": true
+  "carId": "75a3f789-d49e-4431-9294-05cbf9d819d8",
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.99,
+  "status": "SOLD"
 }
 ```
-- Path `/veiculo/status/D/?price=ASC`
+- Path `/car/status/AVAILABLE`
     - **GET**: Lista todos os veiculos disponiveis do mais barato para mais caro 
       - **HTTP Code**:
         - 200 - retornou dados
@@ -164,55 +169,55 @@ docker compose up
 ```json
 [
  {
-  "id": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
-  "marca": "GM",
-  "modelo": "S10",
-  "ano": "2024",
-  "cor": "Prata",
-  "valor": 124000.99,
-  "status": "D"
+  "carId": "75a3f789-d49e-4431-9294-05cbf9d819d8",
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.98,
+  "status": "AVAILABLE"
 },
- {
-  "id": "5a68ef06-1b8c-11ee-8fe5-023afac12b32",
-  "marca": "GM",
-  "modelo": "S10",
-  "ano": "2022",
-  "cor": "Preto",
-  "valor": 114000.99,
-  "status": "D"
-},
+{
+  "carId": "8e39a766-e6f8-4a78-a140-7c470028c43d",
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.99,
+  "status": "AVAILABLE"
+}
 ]
 ```
-- Path `/veiculo/status/V/?price=DESC`
+- Path `/veiculo/status/SOLD`
     - **GET**: Lista todos os veiculos vendidos do mais caro para mais barato
       - **HTTP Code**:
         - 200 - retornou dados
 - **Resposta**
 ```json
 [
- {
-  "id": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
-  "marca": "GM",
-  "modelo": "S10",
-  "ano": "2024",
-  "cor": "Prata",
-  "valor": 124000.99,
-  "status": "V"
+{
+  "carId": "75a3f789-d49e-4431-9294-05cbf9d819d8",
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.98,
+  "status": "SOLD"
 },
- {
-  "id": "5a68ef06-1b8c-11ee-8fe5-023afac12b32",
-  "marca": "GM",
-  "modelo": "S10",
-  "ano": "2022",
-  "cor": "Preto",
-  "valor": 114000.99,
-  "status": "V"
-},
+{
+  "carId": "8e39a766-e6f8-4a78-a140-7c470028c43d",
+  "brand": "GM",
+  "model": "S10",
+  "year": "2024",
+  "color": "Cinza",
+  "price": 124000.99,
+  "status": "SOLD"
+}
 ]
 ```
 
-### Venda
-- Path `/venda`
+### Venda / Order
+- Path `/order`
     - **POST**: Cria uma nova venda
       - **HTTP Code**:
         - 200 - cadastrado corretamente
@@ -220,43 +225,49 @@ docker compose up
   - **Payload**
 ```json
 {
-"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
-"data_compra": "2024-01-01 00:00:00",
-"cpf": "185.612.250-68",
-"valor": 124000.00
+  "carId": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
+  "cpf": "185.612.250-68",
+  "total": 124000.00
 }
 ```
 - **Resposta**
 ```json
 {
-"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
-"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
-"data_compra": "2024-01-01 00:00:00",
-"cpf": "185.612.250-68",
-"valor": 124000.00
+
+    "orderId": "df0dd781-ac9d-4cc3-a789-b31d0b9a4b33",
+    "carId": "88b653f1-8d96-4ddc-ba65-e718398ef9e4",
+    "total": 124000,
+    "cpf": "185.612.250-68",
+    "createAt": "2024-10-07T15:06:55.068Z"
+
 }
 ```
-- Path `/venda`
+- Path `/order`
     - **GET**: Lista todas as vendas
       - **HTTP Code**:
         - 200
 - **Resposta**
 ```json
 [
-{
-"id": "5a68ef06-1b8c-11ee-8fe5-023afac12b88",
-"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-023afac12b88",
-"data_compra": "2024-01-01 00:00:00",
-"cpf": "185.612.250-68",
-"valor": 124000.00
-},
-{
-"id": "8j68ef06-1b8c-11ee-8fe5-023afac12b8432",
-"idVeiculo": "5b48ef06-1b8c-11ee-8fe5-8j68ef06",
-"data_compra": "2024-01-01 00:00:00",
-"cpf": "000.000.00-00",
-"valor": 124000.00
-}
+
+  {
+      "orderId": "df0dd781-ac9d-4cc3-a789-b31d0b9a4b33",
+      "carId": "88b653f1-8d96-4ddc-ba65-e718398ef9e4",
+      "cpf": "185.612.250-68",
+      "total": "124000",
+      "createAt": "2024-10-07T15:06:55.068Z",
+      "car": {
+          "carId": "88b653f1-8d96-4ddc-ba65-e718398ef9e4",
+          "price": 2.99,
+          "status": "SOLD",
+          "brand": "GM",
+          "model": "S10",
+          "color": "Cinza",
+          "year": {
+              "value": "2024"
+          }
+      }
+  }
+
 ]
 ```
-

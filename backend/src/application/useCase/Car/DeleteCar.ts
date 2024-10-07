@@ -8,14 +8,12 @@ export default class DeleteCar implements UseCase {
     private readonly orderRepository: OrderRepository,
   ) {}
   async execute(input: Input): Promise<Output> {
-    const carSold = await this.orderRepository.getByCar(input.carId);
+    const carSold = await this.orderRepository.getByCar(input);
     if (carSold) throw new Error('Sold car not be deleted');
 
-    await this.carRepository.delete(input.carId);
-    return true;
+    await this.carRepository.delete(input);
+    return { status: true};
   }
 }
-type Input = {
-  carId: string;
-};
-type Output = boolean;
+type Input = string;
+type Output = { status: boolean };

@@ -7,7 +7,7 @@ export default class ListCars implements UseCase {
     private readonly carRepository: CarRepository,
   ) {}
   async execute(input: Input): Promise<Output> {
-    const carExists = await this.carRepository.list(input.status);
+    const carExists = await this.carRepository.list(input);
     return carExists.map(car => ({
       carId: car.carId,
       brand: car.brand,
@@ -19,9 +19,8 @@ export default class ListCars implements UseCase {
     }))
   }
 }
-type Input = {
-  status: keyof typeof CAR_STATUS;
-};
+type Input = keyof typeof CAR_STATUS;
+
 type Output = Array<{
   carId: string;
   brand: string;

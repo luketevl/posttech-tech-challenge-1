@@ -1,8 +1,8 @@
-drop schema if exists tech cascade;
+drop schema if exists postech cascade;
 
-create schema tech;
+create schema postech;
 
-create table tech.car (
+create table postech.car (
 	car_id uuid primary key,
 	price numeric,
 	status text default 'A',
@@ -12,7 +12,7 @@ create table tech.car (
 	year text not null
 );
 
-create table tech.car_history (
+create table postech.car_history (
 	car_history_id uuid primary key,
 	car_id text,
 	price numeric not null,
@@ -25,7 +25,7 @@ create table tech.car_history (
 );
 
 
-create table tech.order (
+create table postech.order (
 	order_id uuid primary key,
 	car_id uuid,
 	total numeric not null,

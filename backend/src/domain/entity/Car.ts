@@ -13,6 +13,7 @@ export default class Car {
     readonly color: string,
     year: string,
   ) {
+    if(status !== CAR_STATUS.AVAILABLE && status !== CAR_STATUS.SOLD) throw new Error('Invalid status')
     this.year = new CarYear(year);
   }
 

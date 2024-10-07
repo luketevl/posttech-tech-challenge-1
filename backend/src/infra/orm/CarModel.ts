@@ -19,7 +19,7 @@ export default class CarModel extends Model {
   color: string;
   @column('year')
   year: string;
-  
+
   constructor(
     carId: string,
     price: number,
@@ -51,13 +51,13 @@ export default class CarModel extends Model {
     );
   }
 
-  static getModelFromAggreggate(car: Car) {
+  static getModelFromAggregate(car: Car) {
     return new CarModel(
       car.carId,
-	  car.price,
+      car.price,
       car.status,
       car.brand,
-	  car.model,
+      car.model,
       car.color,
       car.year.getValue(),
     );

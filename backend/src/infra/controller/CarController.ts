@@ -28,6 +28,7 @@ export default class CarController {
       // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       async (params: any, _body: any) => {
         const { carId } = params;
+        if(!carId) throw new Error('Car id is required');
         const output = await this.getCar.execute(carId);
         return output;
       },
@@ -39,8 +40,6 @@ export default class CarController {
       // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       async (params: any, _body: any) => {
         const { status } = params;
-        if (status !== CAR_STATUS.AVAILABLE && status !== CAR_STATUS.SOLD)
-          throw new Error('Invalid status');
         const output = await this.listCars.execute(status);
         return output;
       },
@@ -52,7 +51,6 @@ export default class CarController {
       async (params: any, body: any) => {
         const input = body;
         const { carId } = params;
-        console.log('Cart Input', input);
         const output = await this.updateCar.execute({ ...input, carId });
         return output;
       },
