@@ -11,7 +11,7 @@
   
 ### Ordem de chamada
 > Recomendo usar a seguinte ordem
-![Drdem chamada API](./resources/ordem-api.png)
+![Ordem chamada API](./resources/ordem-api.png)
 
 # Stack
 - Typescript
