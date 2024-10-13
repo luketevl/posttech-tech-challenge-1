@@ -63,7 +63,6 @@ Controle de gerenciamento/venda de veículos
   - rodar os comandos
   -  ```shell
       npm run configure
-      npm run start
       ```
 - configuração manual (opcional)
   - configurar arquivo .env do projeto com os dados do banco de dados, deixei ele pronto no .env.example então basta copiar e renomear para .env
