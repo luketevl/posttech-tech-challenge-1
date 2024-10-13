@@ -19,7 +19,7 @@ export default class OrderRepositoryOrm implements OrderRepository {
         ),
     );
   }
-  async getByCar(carId: string): Promise<Order> {
+  async getByCar(carId: string): Promise<Order | null> {
     return this.orm.get('car_id', carId, OrderModel);
   }
   async save(order: Order): Promise<void> {

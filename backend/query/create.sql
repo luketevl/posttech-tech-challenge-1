@@ -12,16 +12,11 @@ create table postech.car (
 	year text not null
 );
 
-create table postech.car_history (
-	car_history_id uuid primary key,
-	car_id text,
-	price numeric not null,
-	status text not null,
-	brand text not null,
-	model text not null,
-	color text not null,
-	year text not null,
-    create_at timestamp not null
+create table postech.entity_history (
+	entity_history_id uuid primary key,
+	entity_id uuid,
+	data text,
+  create_at timestamp not null
 );
 
 

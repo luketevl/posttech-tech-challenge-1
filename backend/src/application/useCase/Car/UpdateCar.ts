@@ -3,11 +3,14 @@ import type OrderRepository from 'src/application/repository/OrderRepository.ts'
 import { CAR_STATUS } from 'src/config/Status.ts';
 import Car from 'src/domain/entity/Car.ts';
 import type UseCase from '../UseCase.ts';
+import EntityHistory from 'src/domain/entity/EntityHistory.ts';
+import type EntityHistoryRepository from 'src/application/repository/EntityHistoryRepository.ts';
 
 export default class UpdateCar implements UseCase {
   constructor(
     private readonly carRepository: CarRepository,
     private readonly orderRepository: OrderRepository,
+    private readonly entityHistoryRepository: EntityHistoryRepository,
   ) {}
   async execute(input: Input): Promise<Output> {
     const carExists = await this.carRepository.get(input.carId);
@@ -23,6 +26,8 @@ export default class UpdateCar implements UseCase {
       input.color,
       input.year,
     );
+     const history = EntityHistory.create(carExists.carId, JSON.stringify(car));
+    await this.entityHistoryRepository.save(history)
     await this.carRepository.update(carExists.carId, car);
     return {
       carId: car.carId,
