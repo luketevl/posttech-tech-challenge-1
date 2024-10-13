@@ -3,6 +3,7 @@ import { CAR_STATUS } from 'src/config/Status.ts';
 import CarYear from '../valueObject/CarYear.ts';
 export default class Car {
   public year: CarYear;
+  private oldValue: Car | null = null;
 
   constructor( 
     readonly carId: string,
@@ -34,5 +35,11 @@ export default class Car {
       throw new Error('Car already sold');
     }
     this.status = CAR_STATUS.SOLD;
+  }
+  getOlderValue(){
+    return this.oldValue
+  }
+  setOlderValue(oldValue: Car){
+    this.oldValue = oldValue
   }
 }

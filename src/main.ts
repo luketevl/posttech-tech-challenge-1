@@ -14,6 +14,7 @@ import ExpressAdapter from './infra/http/ExpressAdapter.ts';
 import ORM from './infra/orm/ORM.ts';
 import CarRepositoryOrm from './infra/repository/CarRepositoryOrm.ts';
 import OrderRepositoryOrm from './infra/repository/OrderRepositoryOrm.ts';
+import EntityHistoryRepositoryOrm from './infra/repository/EntityHistoryRepositoryOrm.ts';
 
 (async () => {
   const connection = new PgPromiseAdapter();
@@ -21,13 +22,14 @@ import OrderRepositoryOrm from './infra/repository/OrderRepositoryOrm.ts';
   const orm = new ORM(connection);
   const carRepository = new CarRepositoryOrm(orm);
   const orderRepository = new OrderRepositoryOrm(orm);
+  const entityHistoryRepository = new EntityHistoryRepositoryOrm(orm);
   const createCar = new CreateCar(carRepository)
-  const updateCar = new UpdateCar(carRepository, orderRepository)
-  const deleteCar  = new DeleteCar(carRepository, orderRepository)
+  const updateCar = new UpdateCar(carRepository, orderRepository, entityHistoryRepository)
+  const deleteCar  = new DeleteCar(carRepository, orderRepository, entityHistoryRepository)
   const getCar  = new GetCar(carRepository)
   const listCars = new ListCars(carRepository)
 
-  const createOrder = new CreateOrder(orderRepository, carRepository)
+  const createOrder = new CreateOrder(orderRepository, carRepository, entityHistoryRepository)
   const listOrders = new ListOrders(orderRepository, carRepository)
   new CarController(httpServer, createCar, updateCar, deleteCar, getCar, listCars);
   new OrderController(httpServer, createOrder, listOrders);

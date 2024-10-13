@@ -26,7 +26,7 @@ export default class UpdateCar implements UseCase {
       input.color,
       input.year,
     );
-     const history = EntityHistory.create(carExists.carId, JSON.stringify(car));
+     const history = EntityHistory.create(carExists.carId, JSON.stringify(carExists));
     await this.entityHistoryRepository.save(history)
     await this.carRepository.update(carExists.carId, car);
     return {
