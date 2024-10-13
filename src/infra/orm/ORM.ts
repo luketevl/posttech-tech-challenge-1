@@ -46,17 +46,14 @@ export default class ORM {
   async getAll(field: string, value: any, order: string, model: any) {
     const orderBy = order.length ? `ORDER BY ${order}` : '';
     const query = `select * from ${model.prototype.schema}.${model.prototype.table} where ${field} = $1 ${orderBy}`;
-    console.log(query);
     const data = await this.databaseConnection.query(query, value);
     if (!data) return []; 
-    console.log(4444, data)
    
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     return data.map((item: any) => {
       const obj = new model();
       for (const column of model.prototype.columns) {
         if (column.type === 'number') {
-          console.log(column)
           obj[column.property] = Number.parseFloat(item[column.column]);
         } else {
           obj[column.property] = item[column.column];

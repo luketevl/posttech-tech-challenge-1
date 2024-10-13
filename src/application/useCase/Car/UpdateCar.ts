@@ -24,6 +24,8 @@ export default class UpdateCar implements UseCase {
       input.brand,
       input.model,
       input.color,
+      carExists.createAt,
+      new Date(),
       input.year,
     );
      const history = EntityHistory.create(carExists.carId, JSON.stringify(carExists));
@@ -37,6 +39,8 @@ export default class UpdateCar implements UseCase {
       color: car.color,
       price: car.price,
       status: car.status,
+      createAt: carExists.createAt,
+      updateAt: carExists.updateAt
     };
   }
 }
@@ -57,4 +61,6 @@ type Output = {
   color: string;
   price: number;
   status: string;
+  createAt: Date;
+  updateAt: Date;
 };

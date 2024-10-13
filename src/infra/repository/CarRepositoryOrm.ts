@@ -15,6 +15,8 @@ export default class CarRepositoryOrm implements CarRepository {
         car.brand,
         car.model,
         car.color,
+        car.createAt,
+        car.updateAt,
         car.year,
       );
     return null;
@@ -30,7 +32,6 @@ export default class CarRepositoryOrm implements CarRepository {
   }
   async list(status: keyof typeof CAR_STATUS): Promise<Array<Car>> {
     const cars = await this.orm.getAll('status', status, 'price ASC', CarModel)
-    console.log(cars)
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     if(cars) return cars.map((car: any) => new Car(
         car.carId,
@@ -39,6 +40,8 @@ export default class CarRepositoryOrm implements CarRepository {
         car.brand,
         car.model,
         car.color,
+        car.createAt,
+        car.updateAt,
         car.year,
       ))
       return []

@@ -19,6 +19,10 @@ export default class CarModel extends Model {
   color: string;
   @column('year')
   year: string;
+  @column('create_at')
+  createAt: Date;
+  @column('update_at')
+  updateAt: Date;
 
   constructor(
     carId: string,
@@ -27,6 +31,8 @@ export default class CarModel extends Model {
     brand: string,
     model: string,
     color: string,
+    createAt: Date,
+    updateAt: Date,
     year: string,
   ) {
     super();
@@ -36,6 +42,8 @@ export default class CarModel extends Model {
     this.brand = brand;
     this.color = color;
     this.model = model;
+    this.createAt = createAt;
+    this.updateAt = updateAt;
     this.year = year;
   }
 
@@ -47,6 +55,8 @@ export default class CarModel extends Model {
       this.brand,
       this.model,
       this.color,
+      this.createAt,
+      this.updateAt,
       this.year,
     );
   }
@@ -59,6 +69,8 @@ export default class CarModel extends Model {
       car.brand,
       car.model,
       car.color,
+      car.createAt,
+      car.updateAt,
       car.year.getValue(),
     );
   }

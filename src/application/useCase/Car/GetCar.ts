@@ -16,6 +16,8 @@ export default class GetCar implements UseCase {
       color: carExists.color,
       price: carExists.price,
       status: carExists.status,
+      createAt: carExists.createAt,
+      updateAt: carExists.updateAt,
     };
   }
 }
@@ -28,4 +30,6 @@ type Output = {
   color: string;
   price: number;
   status: string;
+  createAt: Date;
+  updateAt: Date;
 };

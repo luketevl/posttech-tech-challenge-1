@@ -18,7 +18,6 @@ export default class CarController {
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     this.httpServer.register('post', '/car', async (_params: unknown, body: any) => {
       const input = body;
-      console.log('Cart Input', input);
       const output = await this.createCar.execute(input);
       return output;
     });

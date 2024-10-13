@@ -7,7 +7,6 @@ export abstract class Model {
 }
 
 export function model(schema: string, table: string) {
-  console.log(5555, schema, table);
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   return (target: any) => {
     target.prototype.schema = schema;

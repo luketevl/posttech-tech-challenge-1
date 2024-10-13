@@ -12,6 +12,8 @@ export default class Car {
     readonly brand: string,
     readonly model: string,
     readonly color: string,
+    readonly createAt: Date,
+    public updateAt: Date,
     year: string,
   ) {
     if(status !== CAR_STATUS.AVAILABLE && status !== CAR_STATUS.SOLD) throw new Error('Invalid status')
@@ -27,7 +29,7 @@ export default class Car {
     year: string,
   ) {
     const carId = crypto.randomUUID();
-    return new Car(carId, price, status, brand, model, color, year);
+    return new Car(carId, price, status, brand, model, color, new Date(), new Date(), year);
   }
 
   sell(){
@@ -35,6 +37,7 @@ export default class Car {
       throw new Error('Car already sold');
     }
     this.status = CAR_STATUS.SOLD;
+    this.updateAt = new Date();
   }
   getOlderValue(){
     return this.oldValue

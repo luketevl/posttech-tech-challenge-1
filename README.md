@@ -71,6 +71,10 @@ Controle de gerenciamento/venda de veículos
   - rodar npm run start
   - agora ele vai ta com o banco de dados e aplicacao rodando, a porta esta no .env
 
+### Ordem de chamada
+> Recomendo usar a seguinte ordem
+![Ordem chamada API](./resources/ordem-api.png)
+
 ## Como testar
 - Segue abaixo collection com todos os endpoints disponíveis para teste.
 
@@ -104,7 +108,9 @@ Controle de gerenciamento/venda de veículos
     "year": "2024",
     "color": "Cinza",
     "price": 124000.99,
-    "status": "AVAILABLE"
+    "status": "AVAILABLE",
+    "createAt": "2024-10-13T18:02:32.199Z",
+    "updateAt": "2024-10-13T18:02:32.199Z"
 }
 ```
 - Path `/car/{{id}}`
@@ -132,7 +138,9 @@ Controle de gerenciamento/venda de veículos
   "year": "2024",
   "color": "Cinza",
   "price": 124000.99,
-  "status": "SOLD"
+  "status": "SOLD",
+  "createAt": "2024-10-13T18:02:32.199Z",
+  "updateAt": "2024-10-13T18:02:32.199Z"
 }
 ```
 - Path `/car/{{id}}`
@@ -160,7 +168,9 @@ Controle de gerenciamento/venda de veículos
   "year": "2024",
   "color": "Cinza",
   "price": 124000.99,
-  "status": "SOLD"
+  "status": "SOLD",
+  "createAt": "2024-10-13T18:02:32.199Z",
+  "updateAt": "2024-10-13T18:02:32.199Z"
 }
 ```
 - Path `/car/status/AVAILABLE`
@@ -177,7 +187,9 @@ Controle de gerenciamento/venda de veículos
   "year": "2024",
   "color": "Cinza",
   "price": 124000.98,
-  "status": "AVAILABLE"
+  "status": "AVAILABLE",
+  "createAt": "2024-10-13T18:02:32.199Z",
+  "updateAt": "2024-10-13T18:02:32.199Z"
 },
 {
   "carId": "8e39a766-e6f8-4a78-a140-7c470028c43d",
@@ -186,7 +198,9 @@ Controle de gerenciamento/venda de veículos
   "year": "2024",
   "color": "Cinza",
   "price": 124000.99,
-  "status": "AVAILABLE"
+  "status": "AVAILABLE",
+  "createAt": "2024-10-13T18:02:32.199Z",
+  "updateAt": "2024-10-13T18:02:32.199Z"
 }
 ]
 ```
@@ -204,7 +218,9 @@ Controle de gerenciamento/venda de veículos
   "year": "2024",
   "color": "Cinza",
   "price": 124000.98,
-  "status": "SOLD"
+  "status": "SOLD",
+  "createAt": "2024-10-13T18:02:32.199Z",
+  "updateAt": "2024-10-13T18:02:32.199Z"
 },
 {
   "carId": "8e39a766-e6f8-4a78-a140-7c470028c43d",
@@ -213,7 +229,9 @@ Controle de gerenciamento/venda de veículos
   "year": "2024",
   "color": "Cinza",
   "price": 124000.99,
-  "status": "SOLD"
+  "status": "SOLD",
+  "createAt": "2024-10-13T18:02:32.199Z",
+  "updateAt": "2024-10-13T18:02:32.199Z"
 }
 ]
 ```
@@ -265,9 +283,9 @@ Controle de gerenciamento/venda de veículos
           "brand": "GM",
           "model": "S10",
           "color": "Cinza",
-          "year": {
-              "value": "2024"
-          }
+          "year": "2024",
+          "createAt": "2024-10-13T18:02:32.199Z",
+          "updateAt": "2024-10-13T18:02:32.199Z"
       }
   }
 
@@ -279,10 +297,6 @@ Controle de gerenciamento/venda de veículos
   - collection.json - Tem a collection
   - collection-env.json - Tem as variaveis do postman necessárias para rodar a collection.
   
-### Ordem de chamada
-> Recomendo usar a seguinte ordem
-![Ordem chamada API](./resources/ordem-api.png)
-
 # Stack
 - Typescript
 - Docker

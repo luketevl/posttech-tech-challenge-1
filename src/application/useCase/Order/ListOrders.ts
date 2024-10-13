@@ -16,10 +16,13 @@ export default class ListOrders implements UseCase {
       const car = await this.carRepository.get(order.carId);
       newOrders.push({
         ...order,
-        car,
+        car: {
+          ...car,
+          year: car?.year.getValue()
+        },
       });
     }
-    return newOrders;
+    return newOrders as never;
   }
 }
 type Output = Array<{

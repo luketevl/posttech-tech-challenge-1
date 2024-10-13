@@ -14,7 +14,6 @@ export default class OrderController {
       // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       async (_params: unknown, body: any) => {
         const input = body;
-        console.log('Order Input', input);
         const output = await this.createOrder.execute(input);
         return output;
       },

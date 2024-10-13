@@ -23,6 +23,8 @@ export default class CreateCar implements UseCase {
       color: car.color,
       price: car.price,
       status: car.status,
+      createAt: car.createAt,
+      updateAt: car.updateAt,
     };
   }
 }
@@ -42,4 +44,6 @@ type Output = {
   color: string;
   price: number;
   status: string;
+  createAt: Date;
+  updateAt: Date;
 };

@@ -9,7 +9,10 @@ create table postech.car (
 	brand text not null,
 	model text not null,
 	color text not null,
-	year text not null
+	year text not null,
+	create_at timestamp not null,
+  update_at timestamp not null
+
 );
 
 create table postech.entity_history (
