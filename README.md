@@ -57,17 +57,22 @@ Controle de gerenciamento/venda de veículos
 ----
 
 # Executando o projeto
-- Instalar dependencias
-```shelll
-npm i
-docker compose up
-```
-## Como rodar locamente
-- Acesse a pasta backend no README tem as instruções.
+
+## Orientação para o avaliador.
+- configuração automatica
+  - rodar os comandos
+  -  ```shell
+      npm run configure
+      npm run start
+      ```
+- configuração manual (opcional)
+  - configurar arquivo .env do projeto com os dados do banco de dados, deixei ele pronto no .env.example então basta copiar e renomear para .env
+  - rodar npm install
+  - rodar npm run start
+  - agora ele vai ta com o banco de dados e aplicacao rodando, a porta esta no .env
 
 ## Como testar
 - Segue abaixo collection com todos os endpoints disponíveis para teste.
-
 
 # API
 ## Rotas
@@ -267,4 +272,30 @@ docker compose up
   }
 
 ]
+```
+
+## API
+- na documentação da pasta principal tem a url da collection do postman online. Mas tambem dentro dessa pasta existe dois arquivos:
+  - collection.json - Tem a collection
+  - collection-env.json - Tem as variaveis do postman necessárias para rodar a collection.
+  
+### Ordem de chamada
+> Recomendo usar a seguinte ordem
+![Ordem chamada API](./resources/ordem-api.png)
+
+# Stack
+- Typescript
+- Docker
+
+# Development
+
+```shell
+npm install
+npm run dev
+```
+
+# Build
+
+```shell
+npm run build 
 ```

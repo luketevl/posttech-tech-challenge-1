@@ -10,6 +10,7 @@
   "author": "lukete <luketevl@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "configure": "npm i && cp .env.example .env && npm run clean && npm run start",
     "test": "vitest watch --coverage ",
     "build": "tsup src/main.ts && node dist/index.cjs",
     "dev": "tsx watch src/main.ts",
