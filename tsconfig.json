@@ -7,5 +7,6 @@
     "types": ["vitest/globals"],
     "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
     "allowImportingTsExtensions": true,
+    "target": "es2016"
   }
 }

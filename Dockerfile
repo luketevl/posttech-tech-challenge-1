@@ -1,4 +1,4 @@
-from node:lts as development
+FROM node:lts AS development
 
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
@@ -16,7 +16,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:lts as production
+FROM node:lts AS production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
