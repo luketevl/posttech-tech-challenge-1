@@ -77,11 +77,14 @@ Controle de gerenciamento/venda de veículos
 
 ## Como testar
 - Segue abaixo collection com todos os endpoints disponíveis para teste.
-
+  
 # API
 ## Rotas
 > Documentacao das rotas disponiveis, elas podem ser acessadas tambem nessa collection (https://documenter.getpostman.com/view/483864/2sAXxP9CRu)
-> 
+- Ta tudo na collection do postman online. Mas tambem dentro dessa pasta existe dois arquivos(caso precise):
+  - collection.json - Tem a collection
+  - collection-env.json - Tem as variaveis do postman necessárias para rodar a collection.
+
 ### Veiculo / Car
 - Path `/car`
     - **POST**: Cria um novo veiculo
@@ -291,12 +294,11 @@ Controle de gerenciamento/venda de veículos
 
 ]
 ```
+## Docker
+- db = banco de dados
+- api = api na porta 3334
 
-## API
-- na documentação da pasta principal tem a url da collection do postman online. Mas tambem dentro dessa pasta existe dois arquivos:
-  - collection.json - Tem a collection
-  - collection-env.json - Tem as variaveis do postman necessárias para rodar a collection.
-  
+
 # Stack
 - Typescript
 - Docker
